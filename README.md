@@ -1,4 +1,4 @@
 javascript-patterns-snippets
 ============================
+Useful JavaScript Patterns Snippets for Sublime Text
 
-Useful JavaScript Patterns Snippets
