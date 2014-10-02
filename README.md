@@ -73,5 +73,63 @@ var singletonName = (function() {
 Reference:
 - [Singleton Pattern - Simples Ideias](http://simplesideias.com.br/design-patterns-no-javascript-singleton)
 
+## Module
 
+**trigger**: module⇥
+
+A simple module pattern. Uses strict mode and suggest the use of a `init`
+function for kickoff. Also possible to define some "private" methods and
+variables. Only the variable with the module's name is returned and therefore
+made public outside the closure.
+
+```javascript
+var moduleName = (function() {
+  'use strict';
+
+  var privateVar = '';
+
+  var moduleName = {
+    init: {
+      // kickoff
+    }
+  }
+
+  return moduleName;
+
+}());
+```
+
+Reference:
+- [JavaScript Module Pattern: In-Depth](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html)
+
+
+## Revealing module
+
+**trigger**: rmodule⇥
+
+Some might say it's a less verbose and more organized way to define a module.
+It declares all the variables and functions in the private scope and returns
+an object with references to what is going to be public.
+
+```javascript
+var revealingModule = (function(){
+  'use strict';
+
+  var privateVar = 'foo';
+  var publicVar = 'bar';
+
+  function privateFunction() {
+
+  }
+
+  function publicFunction() {
+
+  }
+
+  return {
+    publicVar: publicVar,
+    publicFunction: publicFunction
+  };
+}());
+```
 
