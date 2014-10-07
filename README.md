@@ -75,6 +75,68 @@ Reference:
 
 ## Module
 
+<<<<<<< HEAD
+**trigger**: module⇥
+
+A simple module pattern. Uses strict mode and suggest the use of a `init`
+function for kickoff. Also possible to define some "private" methods and
+variables. Only the variable with the module's name is returned and therefore
+made public outside the closure.
+
+```javascript
+var moduleName = (function() {
+  'use strict';
+
+  var privateVar = '';
+
+  var moduleName = {
+    init: {
+      // kickoff
+    }
+  }
+
+  return moduleName;
+
+}());
+```
+
+Reference:
+- [JavaScript Module Pattern: In-Depth](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html)
+
+
+## Revealing module
+
+**trigger**: rmodule⇥
+
+Some might say it's a less verbose and more organized way to define a module.
+It declares all the variables and functions in the private scope and returns
+an object with references to what is going to be public.
+
+```javascript
+var revealingModule = (function(){
+  'use strict';
+
+  var privateVar = 'foo';
+  var publicVar = 'bar';
+
+  function privateFunction() {
+
+  }
+
+  function publicFunction() {
+
+  }
+
+  return {
+    publicVar: publicVar,
+    publicFunction: publicFunction
+  };
+}());
+```
+=======
+## Module
+>>>>>>> pr/3
+
 **trigger**: module⇥
 
 A simple module pattern. Uses strict mode and suggest the use of a `init`
@@ -133,3 +195,30 @@ var revealingModule = (function(){
 }());
 ```
 
+## Memoization
+
+Caches the return value of function. Useful for repetitive calls for a
+computationally expensive function.
+
+```javascript
+var expensiveFunction = (function() {
+  'use strict';
+
+  var funcMemoized = function() {
+    var cacheKey = JSON.stringify(Array.prototype.slice.call(arguments));
+    var result;
+
+    if (!funcMemoized.cache[cacheKey]) {
+        // your expensive computation goes here
+
+        funcMemoized.cache[cacheKey] = result;
+    }
+
+    return funcMemoized.cache[cacheKey];
+  }
+
+  funcMemoized.cache = {};
+
+  return funcMemoized;
+}());
+```
